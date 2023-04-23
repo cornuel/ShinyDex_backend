@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<body class="registration">
+    <figure class="registration__logo">
+        <a href="{% url 'index' %}">
+            <img src="{% static 'base/images/logo2.png' %}" alt="E Vault">
+        </a>
+    </figure>
+
+    <h1 class="registration__heading">Account Registration</h1>
+
+    <figure class="registration__image">
+        <img src="{% static 'base/images/header.gif' %}" alt="/">
+    </figure>
+
+    {% comment %} <form action="/register.py" class="registration__form" method="post">
+        <p class="register_error"> "error_message if error_message else" </p>
+        <input type=" text" name="register--name" placeholder="Name" required />
+        <input type="email" name="register--email" placeholder="Email" required />
+        <input type="text" name="register--username" placeholder="Username" required />
+        <input type="password" name="register--password" placeholder="Password" required />
+        <button type="submit" class="nav__register">Register</button>
+        <p>Already have an account? <a href="{% url 'login_page' %}">Log In</a></p>
+    </form> {% endcomment %}
+    
+    <form method="POST" class="registration__form">
+        {% csrf_token %}
+        {{ register_form.as_p }}
+        <button type="submit" class="nav__register">Register</button>
+        <p>Already have an account? <a href="{% url 'login_page' %}">Log In</a></p>
+    </form>
+
+    <script>
+        const error_message = document.querySelector('.register_error')
+        setTimeout(() => {
+            error_message.textContent = ''
+        }, 5000)
+
+    </script>
+</body>
+
+{% endblock contents %}

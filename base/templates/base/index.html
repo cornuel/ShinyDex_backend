@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<body>
+    <nav class="nav">
+        <figure class="nav__logo">
+            <a href="#">
+                <img src="{% static 'base/images/logo2.png' %}" alt="ShinyHunt Clone" />
+            </a>
+        </figure>
+        <div class="nav__buttons">
+            <a href="{% url 'login_page' %}" class="nav__login">log in</a>
+            <a href="{% url 'register_page' %}" class="nav__register">register</a>
+        </div>
+    </nav>
+    <main class="main">
+        <figure class="main__image">
+            <img src="{% static 'base/images/header.gif' %}" alt="/">
+        </figure>
+        <div class="main__wrapper">
+            <p class="main__paragraph">
+                Ici tu vas pouvoir entretenir ta jolie collection de <span>Pokémon shiny</span>.
+                Chez <span>ShinyHunt</span> tout tes Pokémon shiny seront aux même endroit !
+                <br>
+                Alors qu'est-ce qu'on attend ?
+            </p>
+            <div class="main__button">
+                <a href="{% url 'register_page' %}" class="nav__register">register now</a>
+            </div>
+        </div>
+    </main>
+</body>
+{% endblock contents %}

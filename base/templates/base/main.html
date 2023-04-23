@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tailwind_tags %}
+
+{% block contents %}
+<body>
+    {% tailwind_css %}
+
+    <div class="p-10 grid grid-cols-1 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-5 pkmn_grid">
+
+    </div>
+    {% comment %} <div class="p-10 grid grid-cols-1 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-5">
+        {% for pkmn in pkmns %}
+        <div class="rounded-lg overflow-hidden shadow-lg">
+            <img class="w-full" src="media/{{pkmn.get_pokedex_url}}"/>
+          <div class="px-6 py-4">
+            <div class="font-bold text-xl text-center mb-2">{{ pkmn.name_fr }}</div>
+            <p class="text-gray-700 text-base text-center">
+                {{pkmn.name_en}}
+            </p>
+          </div>
+          <div class="px-6 pt-4 pb-2">
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{pkmn.type_1}}</span>
+            {% if pkmn.type_2 == 'NA' %}
+            {% else %}
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{pkmn.type_2}}</span>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %} {% endcomment %}
+
+
+</body>
+{% endblock contents %}
